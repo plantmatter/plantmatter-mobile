@@ -55,8 +55,8 @@ button, input, select { font: inherit; color: inherit; }
 }
 .gnb__menu a {
   position: relative; padding: 6px 0; line-height: 1;
-  /* PC·모바일 같은 크기, 자간은 워드마크와 같은 비율 */
-  font-size: 14px; font-weight: 300; letter-spacing: .185em;
+  /* 로고보다 한 단계 작게, 자간은 워드마크와 같은 비율 */
+  font-size: 12px; font-weight: 300; letter-spacing: .185em;
 }
 .gnb__menu a:first-child { margin-left: -.1em; }   /* P 글자 왼쪽 여백만큼 당겨 로고와 왼쪽 끝 맞춤 */
 .gnb__menu a.is-current::after { content: ""; position: absolute; left: 0; right: .185em; bottom: 0; height: 1px; background: currentColor; }
