@@ -37,7 +37,7 @@ button, input { font: inherit; color: inherit; }
 
 /* ---------- 상단 바: 로고 + 아이콘 / 탭 ---------- */
 .gnb {
-  --logo-w: 148px;   /* 워드마크 너비 — 탭 글자 크기가 이 값에 맞춰 같이 바뀜 */
+  --logo-w: 148px;   /* 워드마크 너비 */
   position: fixed; top: 0; left: 0; right: 0; z-index: 20;
   max-width: var(--max); margin: 0 auto;
   padding: env(safe-area-inset-top) var(--side) 0;
@@ -53,8 +53,8 @@ button, input { font: inherit; color: inherit; }
 }
 .gnb__menu a {
   position: relative; padding: 6px 0; line-height: 1;
-  /* 워드마크와 같은 글자 높이·자간 (Figtree 대문자 높이 = 0.7em) */
-  font-size: calc(var(--logo-w) * .1125); font-weight: 300; letter-spacing: .185em;
+  /* PC·모바일 같은 크기, 자간은 워드마크와 같은 비율 */
+  font-size: 14px; font-weight: 300; letter-spacing: .185em;
 }
 .gnb__menu a:first-child { margin-left: -.1em; }   /* P 글자 왼쪽 여백만큼 당겨 로고와 왼쪽 끝 맞춤 */
 .gnb__menu a.is-current::after { content: ""; position: absolute; left: 0; right: .185em; bottom: 0; height: 1px; background: currentColor; }
