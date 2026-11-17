@@ -110,6 +110,4 @@
     try { localStorage.removeItem('pm-view'); } catch (e) {}
   });
 
-  const year = document.getElementById('year');
-  if (year) year.textContent = new Date().getFullYear();
 })();
