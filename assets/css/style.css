@@ -142,8 +142,7 @@ button, input, select { font: inherit; color: inherit; }
   transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s .3s;
 }
 .search.is-open { opacity: 1; visibility: visible; transform: none; transition: opacity .3s var(--ease), transform .3s var(--ease); }
-.search__top { height: 58px; display: flex; align-items: center; justify-content: space-between; }
-.search__top img { width: 148px; height: auto; }
+.search__top { height: 58px; display: flex; align-items: center; justify-content: flex-end; }
 .search__close { padding: 10px 0; border: 0; background: none; cursor: pointer; font-size: 12px; font-weight: 300; letter-spacing: .22em; }
 .search__form { display: flex; align-items: center; margin-top: 28px; border-bottom: 1px solid var(--text); }
 .search__form input {
