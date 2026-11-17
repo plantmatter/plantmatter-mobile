@@ -1,6 +1,5 @@
 /* PLANT MATTER — MOBILE (m.plantmatter.kr) */
 (() => {
-  const PC_URL = 'https://plantmatter.kr';
   const LANGS = ['ko', 'en', 'ja'];
   const DICT = window.PM_I18N || {};
   const root = document.documentElement;
@@ -16,7 +15,6 @@
   const searchOpen = document.querySelector('[data-search-open]');
   const input = document.getElementById('search-input');
   const msg = search.querySelector('.search__msg');
-  const footPc = document.querySelector('.foot__pc');
 
   /* 검색창·언어 창이 열려 있을 때 뒤 화면 스크롤 막기 */
   const lockScroll = () => {
@@ -38,12 +36,11 @@
         if (attr && key) el.setAttribute(attr, t(key));
       });
     });
-    if (footPc) footPc.href = `${PC_URL}/?view=pc&lang=${lang}`;
     msg.textContent = '';
   };
   applyLang(lang, false);
 
-  /* 주소의 ?lang=, ?view= 는 적용 후 지워서 주소를 깔끔하게 */
+  /* 주소의 ?lang= 은 적용 후 지워서 주소를 깔끔하게 */
   if (/[?&](lang|view)=/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
 
   /* ---------- 아직 없는 페이지·기능: '준비 중' 안내 ---------- */
@@ -103,11 +100,6 @@
     if (e.key !== 'Escape') return;
     if (drawer.classList.contains('is-open')) setDrawer(false);
     else if (search.classList.contains('is-open')) setSearch(false);
-  });
-
-  /* 'PC 버전'을 누르면 모바일 고정 설정을 지움 */
-  footPc?.addEventListener('click', () => {
-    try { localStorage.removeItem('pm-view'); } catch (e) {}
   });
 
 })();
