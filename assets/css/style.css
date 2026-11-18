@@ -424,6 +424,8 @@ button, input, select { font: inherit; color: inherit; }
 .link-btn.is-armed { color: #b3261e; }
 .addr-form { margin: 8px calc(var(--side) * -1) 0; padding: 18px var(--side) 4px; background: #f8f8f6; }
 .addr-form .field input { background: #fff; }
+.addr-form__title { margin: 0 0 14px; font-size: 14px; color: var(--text); }
+.addr-item--default .addr-item__label::after { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 0 2px 8px; border-radius: 50%; background: var(--text); vertical-align: middle; }
 .addr-form__btns { display: grid; gap: 8px; margin: 4px 0 14px; }
 .addr-pick { display: flex; gap: 6px; margin: -4px calc(var(--side) * -1) 18px; padding: 0 var(--side); overflow-x: auto; scrollbar-width: none; }
 .addr-pick::-webkit-scrollbar { display: none; }
