@@ -74,6 +74,7 @@ ${megaItems}
       </button>
     </form>
     <p class="search__msg" aria-live="polite"></p>
+    <ul class="search__results"></ul>
   </div>
 
   <!-- ───────── 언어 설정 (오른쪽에서 열리는 창) ───────── -->
