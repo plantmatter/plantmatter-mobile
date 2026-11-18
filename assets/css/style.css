@@ -172,6 +172,7 @@ button, input, select { font: inherit; color: inherit; }
 
 /* ---------- PLANT 목록 (/plant/) ---------- */
 .list { min-height: 100vh; min-height: 100svh; padding: calc(var(--gnb-h) + 22px) 0 80px; }
+.list { overflow-x: clip; }   /* 분류를 넘길 때 옆으로 밀리는 목록이 가로 스크롤을 만들지 않게 */
 .list__head { padding: 0 var(--side); }
 .crumb { display: flex; gap: 8px; margin: 0; font-size: 10px; letter-spacing: .16em; color: var(--muted); }
 .list__title { margin: 10px 0 0; font-size: 26px; font-weight: 300; line-height: 1.2; letter-spacing: .02em; }
