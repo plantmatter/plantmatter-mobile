@@ -9,6 +9,7 @@
     const s = (DICT[lang] && DICT[lang][key]) ?? (DICT.ko && DICT.ko[key]) ?? key;
     return s.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? '');
   };
+  const langListeners = [];
 
   const toast = document.querySelector('.toast');
   const search = document.getElementById('search');
@@ -38,11 +39,18 @@
       });
     });
     msg.textContent = '';
+    langListeners.forEach((fn) => fn(lang));
   };
   applyLang(lang, false);
 
-  /* 주소의 ?lang= 은 적용 후 지워서 주소를 깔끔하게 */
-  if (/[?&](lang|view)=/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
+  /* 주소의 ?lang= 은 적용 후 지워서 주소를 깔끔하게 (?c= 같은 다른 값은 유지) */
+  const params = new URLSearchParams(location.search);
+  if (params.has('lang') || params.has('view')) {
+    params.delete('lang');
+    params.delete('view');
+    const qs = params.toString();
+    history.replaceState(null, '', location.pathname + (qs ? `?${qs}` : '') + location.hash);
+  }
 
   /* ---------- 탭 아래로 내려오는 메뉴 (PLANT) ---------- */
   /* 탭을 누르면 열리고, 한 번 더 누르거나 어두운 부분을 누르면 닫힘 */
@@ -80,12 +88,12 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('is-show'), 2200);
   };
-  document.querySelectorAll('[data-soon]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (!el.closest('.mega')) setMenu(null);
-      showToast(t('soon', { name: t(el.dataset.soon) }));
-    });
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-soon]');
+    if (!el) return;
+    e.preventDefault();
+    if (!el.closest('.mega')) setMenu(null);
+    showToast(t('soon', { name: t(el.dataset.soon) }));
   });
 
   /* ---------- 검색 (전체 화면) ---------- */
@@ -132,6 +140,15 @@
     else if (drawer.classList.contains('is-open')) setDrawer(false);
     else if (search.classList.contains('is-open')) setSearch(false);
   });
+
+  /* 다른 페이지 스크립트(PLANT 목록 등)와 공유 */
+  window.PM = {
+    t,
+    getLang: () => lang,
+    onLang: (fn) => langListeners.push(fn),
+    closeMenu: () => setMenu(null),
+    toast: showToast,
+  };
 
   /* ---------- 홈 사진 슬라이드 (자동으로 넘어감) ---------- */
   const SLIDE_INTERVAL = 8000;   /* 한 장이 머무는 시간 (밀리초) */
