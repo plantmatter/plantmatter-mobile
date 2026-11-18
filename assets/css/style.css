@@ -71,17 +71,17 @@ button, input, select { font: inherit; color: inherit; }
 .mega {
   position: fixed; top: var(--gnb-h); left: 0; right: 0; bottom: 0; z-index: 19;
   max-width: var(--max); margin: 0 auto;
-  visibility: hidden; transition: visibility 0s .3s;
+  visibility: hidden; transition: visibility 0s .38s;
 }
 .mega.is-open { visibility: visible; transition: none; }
 .mega__panel {
   position: relative; z-index: 1;
   max-height: calc(100svh - var(--gnb-h)); overflow-y: auto; overscroll-behavior: contain;
   padding: 14px var(--side) 18px; background: #fff;
-  opacity: 0; transform: translateY(-8px); transition: opacity .3s var(--ease), transform .3s var(--ease);
+  opacity: 0; transform: translateY(-8px); transition: opacity .38s var(--ease), transform .38s var(--ease);
 }
 .mega.is-open .mega__panel { opacity: 1; transform: none; }
-.mega__dim { position: absolute; inset: 0; background: rgba(23, 23, 23, .45); opacity: 0; transition: opacity .3s var(--ease); }
+.mega__dim { position: absolute; inset: 0; background: rgba(23, 23, 23, .45); opacity: 0; transition: opacity .38s var(--ease); }
 .mega.is-open .mega__dim { opacity: 1; }
 .mega__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none; }
 .mega__item { display: block; }
