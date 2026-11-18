@@ -146,10 +146,11 @@ button, input, select { font: inherit; color: inherit; }
 .search__close { padding: 10px 0; border: 0; background: none; cursor: pointer; font-size: 12px; font-weight: 300; letter-spacing: .22em; }
 .search__form { display: flex; align-items: center; margin-top: 28px; border-bottom: 1px solid var(--text); }
 .search__form input {
-  flex: 1; min-width: 0; height: 54px; padding: 0; border: 0; background: none; outline: none; border-radius: 0;
-  font-size: 19px; font-weight: 300; -webkit-appearance: none; appearance: none;
+  flex: 1; min-width: 0; height: 48px; padding: 0; border: 0; background: none; outline: none; border-radius: 0;
+  /* 16px 미만이면 아이폰이 입력할 때 화면을 확대하므로 입력 글씨는 16px 유지 */
+  font-size: 16px; font-weight: 300; -webkit-appearance: none; appearance: none;
 }
-.search__form input::placeholder { color: #bbb; }
+.search__form input::placeholder { color: #bbb; font-size: 14px; }
 .search__form input::-webkit-search-cancel-button { display: none; }
 .search__form .icon-btn { margin-right: -9px; }
 .search__msg { margin-top: 14px; min-height: 1.6em; font-size: 13px; color: var(--muted); }
