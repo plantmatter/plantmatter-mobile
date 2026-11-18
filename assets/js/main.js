@@ -102,7 +102,7 @@
     search.setAttribute('aria-hidden', String(!open));
     searchOpen.setAttribute('aria-expanded', String(open));
     lockScroll();
-    if (open) input.focus();
+    if (open) input.focus({ preventScroll: true });   // 누르는 순간 바로 (아이폰 키보드), 화면은 흔들리지 않게
     else { input.value = ''; showResults(''); input.blur(); }
   };
   searchOpen.addEventListener('click', () => { setMenu(null); setSearch(true); });

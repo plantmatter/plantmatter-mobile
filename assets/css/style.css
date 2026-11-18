@@ -400,15 +400,20 @@ button, input, select { font: inherit; color: inherit; }
 .co__member { margin: -12px 0 22px; font-size: 13px; line-height: 1.7; color: var(--mid); }
 
 /* ---------- 검색 (전체 화면) ---------- */
+/* 열릴 때: 0.5초 동안 살짝 떠오르며 천천히 멈춤 · 닫힐 때: 0.3초 매끄럽게 · 안쪽은 살짝 늦게 나타남 */
 .search {
+  --open: cubic-bezier(.22, 1, .36, 1); --close: cubic-bezier(.55, 0, .45, 1);
   position: fixed; inset: 0; z-index: 40;
   max-width: var(--max); margin: 0 auto;
   background: #fff;
   padding: env(safe-area-inset-top) var(--side) 0;
-  opacity: 0; visibility: hidden; transform: translateY(12px);
-  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s .3s;
+  opacity: 0; visibility: hidden; transform: translate3d(0, 14px, 0);
+  transition: opacity .3s var(--close), transform .3s var(--close), visibility 0s .3s;
+  will-change: opacity, transform;
 }
-.search.is-open { opacity: 1; visibility: visible; transform: none; transition: opacity .3s var(--ease), transform .3s var(--ease); }
+.search.is-open { opacity: 1; visibility: visible; transform: none; transition: opacity .45s var(--open), transform .55s var(--open); }
+.search > *:not(.search__top) { opacity: 0; transform: translateY(8px); transition: opacity .15s ease, transform .15s ease; }
+.search.is-open > *:not(.search__top) { opacity: 1; transform: none; transition: opacity .45s ease .12s, transform .55s var(--open) .12s; }
 .search__top { height: 58px; display: flex; align-items: center; justify-content: flex-end; }
 .search__close { padding: 10px 0; border: 0; background: none; cursor: pointer; font-size: 12px; font-weight: 300; letter-spacing: .22em; }
 .search__form { display: flex; align-items: center; margin-top: 28px; border-bottom: 1px solid var(--text); }
