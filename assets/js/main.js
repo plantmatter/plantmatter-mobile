@@ -80,6 +80,16 @@
   });
   document.querySelectorAll('[data-menu-close]').forEach((el) => el.addEventListener('click', () => setMenu(null)));
 
+  /* ---------- 상단 탭: 화면보다 길면 옆으로 밀 수 있고, 뒤에 더 있을 때 오른쪽 끝을 흐리게 ---------- */
+  const tabRow = document.querySelector('.gnb__menu');
+  if (tabRow) {
+    const more = () => tabRow.classList.toggle('is-more', tabRow.scrollLeft + tabRow.clientWidth < tabRow.scrollWidth - 2);
+    tabRow.addEventListener('scroll', more, { passive: true });
+    window.addEventListener('resize', more);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(more);
+    more();
+  }
+
   /* ---------- 아직 없는 페이지·기능: '준비 중' 안내 ---------- */
   let toastTimer;
   const showToast = (text) => {

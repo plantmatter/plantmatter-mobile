@@ -50,9 +50,13 @@ button, input, select { font: inherit; color: inherit; }
 .gnb__logo img { width: var(--logo-w); height: auto; }
 .gnb__util { display: flex; margin-right: -9px; }
 .gnb__menu {
-  display: flex; gap: 26px; height: 50px; align-items: center;
+  display: flex; justify-content: space-between; gap: 12px; height: 50px; align-items: center;   /* 탭 4개를 양 끝까지 고르게 */
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain;   /* 아주 좁은 휴대폰에서는 옆으로 밀어서 */
 }
+.gnb__menu::-webkit-scrollbar { display: none; }
+.gnb__menu a { flex: none; }
+.gnb__menu.is-more { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
 .gnb__menu a {
   position: relative; padding: 6px 0; line-height: 1;
   /* 로고보다 한 단계 작게, 자간은 워드마크와 같은 비율 */
