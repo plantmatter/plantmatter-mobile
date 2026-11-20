@@ -17,9 +17,9 @@
   const input = document.getElementById('search-input');
   const msg = search.querySelector('.search__msg');
 
-  /* 검색창·언어 창·메뉴가 열려 있을 때 뒤 화면 스크롤 막기 */
+  /* 검색창·언어 창·장바구니·메뉴가 열려 있을 때 뒤 화면 스크롤 막기 */
   const lockScroll = () => {
-    const open = search.classList.contains('is-open') || document.getElementById('lang-drawer').classList.contains('is-open')
+    const open = search.classList.contains('is-open') || Boolean(document.querySelector('.drawer.is-open'))
       || Boolean(document.querySelector('.mega.is-open'));
     root.style.overflow = open ? 'hidden' : '';
   };
@@ -196,6 +196,7 @@
     closeMenu: () => setMenu(null),
     closeSearch: () => { if (search.classList.contains('is-open')) setSearch(false); },
     toast: showToast,
+    lockScroll,   // 장바구니(cart.js)가 열고 닫을 때 부름
   };
 
   /* ---------- 홈 사진 슬라이드 (자동으로 넘어감) ---------- */
