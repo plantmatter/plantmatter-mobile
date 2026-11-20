@@ -557,18 +557,38 @@ input.qty__val, .cart-item__qty input.qty__val { font-size: 16px; }   /* 16px �
 .ct__sec { padding-top: 22px; border-top: 1px solid var(--text); }
 .ct__h { margin: 0 0 14px; font-size: 16px; font-weight: 300; line-height: 1.5; letter-spacing: .02em; }
 .ct__lead { margin: 0; font-size: 14px; line-height: 1.85; color: var(--mid); }
+.ct__lead--sub { margin-top: 10px; }
+.ws { margin-top: 28px; }
+.ws__trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }   /* 사람에게는 안 보이는 칸 (자동 프로그램 걸러 내기) */
+.field textarea {
+  display: block; width: 100%; min-height: 112px; padding: 12px 12px; border: 1px solid #d6d6d6; border-radius: 0; background: #fff;
+  font-family: inherit; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--text);
+  outline: none; resize: vertical; -webkit-appearance: none; appearance: none; transition: border-color .2s;
+}
+.field textarea::placeholder { color: #b5b5b5; }
+.field textarea:focus { border-color: var(--text); }
+.field .select select { height: 48px; padding: 0 40px 0 12px; border-color: #d6d6d6; font-size: 16px; transition: border-color .2s; }
+.field .select select:focus, .field .select select:focus-visible { box-shadow: none; border-color: var(--text); }
+.field .select select:has(option[value=""]:checked) { color: #b5b5b5; }
+.field .select__chev { right: 16px; }
+.field.is-invalid textarea, .field.is-invalid .select select, .field.is-invalid .file { border-color: #b3261e; }
+/* 사업자등록증 파일: 칸 전체를 누르면 파일 고르기 */
+.file { position: relative; display: flex; align-items: center; gap: 14px; height: 48px; padding: 0 14px 0 6px; border: 1px solid #d6d6d6; background: #fff; transition: border-color .2s; }
+.file:focus-within { border-color: var(--text); }
+.field .file input { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; opacity: 0; cursor: pointer; }
+.file__btn { flex: none; display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border: 1px solid var(--text); font-size: 13px; letter-spacing: .02em; transition: background-color .2s, color .2s; }
+.file__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+.file__name.is-empty { color: #b5b5b5; }
+.ws .agree { margin: 26px 0 18px; }
+.ws .btn-buy { margin-top: 6px; }
+.ws-done { margin-top: 28px; padding: 32px 20px; border: 1px solid var(--line); text-align: center; outline: none; }
+.ws-done__title { margin: 0; font-size: 18px; }
+.ws-done__text { margin: 10px 0 24px; font-size: 14px; line-height: 1.8; color: var(--mid); }
 .ct__list { margin: 26px 0 0; border-top: 1px solid var(--line); }
 .ct__list div { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 12px; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.6; }
 .ct__list dt { color: var(--muted); }
 .ct__list dd { margin: 0; overflow-wrap: anywhere; }
 .ct__list a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-.ct__list .ct__none { grid-template-columns: 1fr; }
-.ct__none dd { color: var(--muted); }
-.ct__ask { margin-top: 28px; }
-.ct__ask-title { margin: 0; font-size: 13px; }
-.ct__ask ul { display: grid; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; color: var(--mid); }
-.ct__ask li { position: relative; padding-left: 16px; }
-.ct__ask li::before { content: ""; position: absolute; left: 0; top: .8em; width: 7px; height: 1px; background: var(--muted); }
 
 @media (prefers-reduced-motion: reduce) {
   .bar.is-active .bar__fill { width: 100%; }
