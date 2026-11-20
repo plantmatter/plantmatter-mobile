@@ -551,10 +551,8 @@ input.qty__val, .cart-item__qty input.qty__val { font-size: 16px; }   /* 16px �
 .co-item + .co-item { margin-top: 14px; }
 
 /* ---------- CONTACT (/contact/) · 도매 문의 — 연락처는 assets/js/contact.js ---------- */
-.ct { min-height: 70svh; padding: calc(var(--gnb-h) + 22px) var(--side) 72px; }
+.ct { min-height: 70svh; padding: calc(var(--gnb-h) + 22px) var(--side) 72px; }   /* 위쪽 여백 · 경로 글씨 · 제목은 PLANT 목록 페이지(.list)와 같게 */
 .ct__head { margin-bottom: 32px; }
-/* CONTACT / B2B 경로 글씨: 위 PLANT 탭과 같은 형식 — 시작 위치(P 글자 여백만큼 당김) · 글자 크기 · 굵기 · 자간 · 줄 높이 · 색 */
-.ct__head .crumb { margin-left: -.1em; gap: 10px; font-size: 12px; font-weight: 300; letter-spacing: .185em; line-height: 1; color: var(--text); }
 .ct__title { margin: 10px 0 0; font-size: 26px; font-weight: 300; line-height: 1.2; letter-spacing: .02em; }
 .ct__sec { padding-top: 22px; border-top: 1px solid var(--text); }
 .ct__h { margin: 0 0 14px; font-size: 16px; font-weight: 300; line-height: 1.5; letter-spacing: .02em; }
