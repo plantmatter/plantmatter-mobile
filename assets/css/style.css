@@ -560,8 +560,6 @@ input.qty__val, .cart-item__qty input.qty__val { font-size: 16px; }   /* 16px �
 .ct__head { margin-bottom: 0; }
 /* B2B · COLLAB 분류 탭 — PLANT 목록의 분류 탭(.pills)과 같은 모양 · 같은 간격 */
 .ct__tabs { margin: 18px 0 22px; padding: 0; }
-.ct__sec.is-in { animation: ct-in .4s var(--ease) both; }
-@keyframes ct-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .ct__title { margin: 10px 0 0; font-size: 26px; font-weight: 300; line-height: 1.2; letter-spacing: .02em; }
 .ct__sec { padding-top: 22px; border-top: 1px solid var(--text); }
 .ct__h { margin: 0 0 14px; font-size: 16px; font-weight: 300; line-height: 1.5; letter-spacing: .02em; }
