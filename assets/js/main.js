@@ -281,9 +281,12 @@
       if (sx === null) return;
       const dx = e.changedTouches[0].clientX - sx;
       const dy = e.changedTouches[0].clientY - sy;
-      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? next : prev)();
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { (dx < 0 ? next : prev)(); swipedAt = Date.now(); }
       sx = null;
     }, { passive: true });
+    /* 사진 전체가 링크인 슬라이드: 밀어서 넘긴 직후의 누름은 링크로 가지 않게 */
+    let swipedAt = 0;
+    area.addEventListener('click', (e) => { if (Date.now() - swipedAt < 400 && e.target.closest('a')) e.preventDefault(); }, true);
 
     /* 다른 탭을 보고 있을 때는 멈춤 */
     document.addEventListener('visibilitychange', () => hero.classList.toggle('is-paused', document.hidden));
