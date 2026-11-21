@@ -60,9 +60,14 @@ button, input, select { font: inherit; color: inherit; }
 .gnb__menu a {
   position: relative; padding: 6px 0; line-height: 1;
   /* 로고보다 한 단계 작게, 자간은 워드마크와 같은 비율 */
-  font-size: 12px; font-weight: 400; letter-spacing: .185em;
+  font-size: 12px; font-weight: 300; letter-spacing: .185em;
 }
 .gnb__menu a:first-child { margin-left: -.1em; }   /* P 글자 왼쪽 여백만큼 당겨 로고와 왼쪽 끝 맞춤 */
+/* 지금 보고 있는 페이지의 탭만 한 단계 굵게 (400). 굵어져도 글씨 위치가 움직이지 않도록,
+   각 탭은 굵은 글씨 너비만큼 자리를 미리 잡아 둠 (::before 에 같은 글자를 굵게 · 높이 0 · 안 보이게 — layout.js 의 data-label) */
+.gnb__menu a { display: inline-flex; flex-direction: column; }
+.gnb__menu a::before { content: attr(data-label); font-weight: 400; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
+.gnb__menu a.is-here { font-weight: 400; }
 .gnb__menu a.is-current::after { content: ""; position: absolute; left: 0; right: .185em; bottom: 0; height: 1px; background: currentColor; }
 
 .icon-btn {
@@ -179,7 +184,7 @@ button, input, select { font: inherit; color: inherit; }
 .list { overflow-x: clip; }   /* 분류를 넘길 때 옆으로 밀리는 목록이 가로 스크롤을 만들지 않게 */
 .list__head { padding: 0 var(--side); }
 .crumb { display: flex; gap: 8px; margin: 0; font-size: 10px; letter-spacing: .16em; color: var(--muted); }
-.list__title { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.2; letter-spacing: .02em; }
+.list__title { margin: 0; font-size: 26px; font-weight: 500; line-height: 1.2; letter-spacing: .02em; }
 .list__bar { margin: 18px 0 22px; }
 .pills {
   display: flex; gap: 6px; padding: 0 var(--side); overflow-x: auto;
@@ -503,13 +508,13 @@ input.qty__val, .cart-item__qty input.qty__val { font-size: 16px; }   /* 16px �
 
 /* ---------- 장바구니 (오른쪽에서 열리는 창 — assets/js/cart.js) ---------- */
 .icon-cart { position: relative; }
-/* 장바구니에 담긴 것이 있으면 상단 가방을 검은색으로 채우고, 개수 표시는 초록(#88a479) 바탕에 흰 숫자(세미 볼드) — cart.js 가 .has-items 를 붙임 */
+/* 장바구니에 담긴 것이 있으면 상단 가방을 검은색으로 채우고, 개수 표시는 초록(#88a479) 바탕에 흰 숫자(500) — cart.js 가 .has-items 를 붙임 */
 .icon-cart .bag__body { transition: fill .3s; }
 .icon-cart.has-items .bag__body { fill: var(--text); }
 .cart-badge {
   position: absolute; top: 6px; right: 0; min-width: 16px; height: 16px; padding: 0 4px;
   display: grid; place-items: center; border-radius: 8px; background: #88a479; color: #fff;
-  font-size: 10px; font-weight: 600; line-height: 1; letter-spacing: 0; pointer-events: none;
+  font-size: 10px; font-weight: 500; line-height: 1; letter-spacing: 0; pointer-events: none;
 }
 .cart__panel { padding: 0; }
 .cart__panel .drawer__head { flex: none; padding-left: var(--side); padding-right: var(--side); }
@@ -559,7 +564,7 @@ input.qty__val, .cart-item__qty input.qty__val { font-size: 16px; }   /* 16px �
 .ct__head { margin-bottom: 0; }
 /* B2B · COLLAB 분류 탭 — PLANT 목록의 분류 탭(.pills)과 같은 모양 · 같은 간격 */
 .ct__tabs { margin: 18px 0 22px; padding: 0; }
-.ct__title { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.2; letter-spacing: .02em; }
+.ct__title { margin: 0; font-size: 26px; font-weight: 500; line-height: 1.2; letter-spacing: .02em; }
 .ct__sec { padding-top: 22px; border-top: 1px solid var(--text); }
 .ct__h { margin: 0 0 14px; font-size: 16px; font-weight: 300; line-height: 1.5; letter-spacing: .02em; }
 .ct__lead { margin: 0; font-size: 14px; line-height: 1.85; color: var(--mid); }
