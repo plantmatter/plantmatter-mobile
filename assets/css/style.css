@@ -50,7 +50,7 @@ button, input, select { font: inherit; color: inherit; }
 .gnb__logo img { width: var(--logo-w); height: auto; }
 .gnb__util { display: flex; margin-right: -9px; }
 .gnb__menu {
-  display: flex; justify-content: space-between; gap: 12px; height: 50px; align-items: center;   /* 탭이 다 들어가면 양 끝까지 고르게 */
+  display: flex; justify-content: space-between; gap: 22px; height: 50px; align-items: center;   /* 탭 사이 간격 22px (다 들어가면 양 끝까지 고르게) */
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain;   /* 아주 좁은 휴대폰에서는 옆으로 밀어서 */
 }
