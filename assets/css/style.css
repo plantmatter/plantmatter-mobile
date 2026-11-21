@@ -179,7 +179,7 @@ button, input, select { font: inherit; color: inherit; }
 .list { overflow-x: clip; }   /* 분류를 넘길 때 옆으로 밀리는 목록이 가로 스크롤을 만들지 않게 */
 .list__head { padding: 0 var(--side); }
 .crumb { display: flex; gap: 8px; margin: 0; font-size: 10px; letter-spacing: .16em; color: var(--muted); }
-.list__title { margin: 10px 0 0; font-size: 26px; font-weight: 600; line-height: 1.2; letter-spacing: .02em; }
+.list__title { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.2; letter-spacing: .02em; }
 .list__bar { margin: 18px 0 22px; }
 .pills {
   display: flex; gap: 6px; padding: 0 var(--side); overflow-x: auto;
@@ -554,12 +554,12 @@ input.qty__val, .cart-item__qty input.qty__val { font-size: 16px; }   /* 16px �
 .co-item + .co-item { margin-top: 14px; }
 
 /* ---------- CONTACT (/contact/) · 도매 문의 — 연락처는 assets/js/contact.js ---------- */
-.ct { min-height: 70svh; padding: calc(var(--gnb-h) + 22px) var(--side) 72px; }   /* 위쪽 여백 · 경로 글씨 · 제목은 PLANT 목록 페이지(.list)와 같게 */
+.ct { min-height: 70svh; padding: calc(var(--gnb-h) + 22px) var(--side) 72px; }   /* 위쪽 여백 · 제목은 PLANT 목록 페이지(.list)와 같게 */
 .ct { overflow-x: clip; }   /* B2B ↔ COLLAB 을 넘길 때 옆으로 밀리는 내용이 가로 스크롤(PC 가로 스크롤바 깜빡임 · 모바일 좌우 흔들림)을 만들지 않게 — PLANT 목록(.list)과 같음 */
 .ct__head { margin-bottom: 0; }
 /* B2B · COLLAB 분류 탭 — PLANT 목록의 분류 탭(.pills)과 같은 모양 · 같은 간격 */
 .ct__tabs { margin: 18px 0 22px; padding: 0; }
-.ct__title { margin: 10px 0 0; font-size: 26px; font-weight: 600; line-height: 1.2; letter-spacing: .02em; }
+.ct__title { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.2; letter-spacing: .02em; }
 .ct__sec { padding-top: 22px; border-top: 1px solid var(--text); }
 .ct__h { margin: 0 0 14px; font-size: 16px; font-weight: 300; line-height: 1.5; letter-spacing: .02em; }
 .ct__lead { margin: 0; font-size: 14px; line-height: 1.85; color: var(--mid); }
