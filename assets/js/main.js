@@ -81,14 +81,25 @@
   });
   document.querySelectorAll('[data-menu-close]').forEach((el) => el.addEventListener('click', () => setMenu(null)));
 
-  /* ---------- 상단 탭: 화면보다 길면 옆으로 밀 수 있고, 뒤에 더 있을 때 오른쪽 끝을 흐리게 ---------- */
+  /* ---------- 상단 탭: 화면보다 길면 옆으로 밀 수 있고, 가려진 탭이 있는 쪽 끝을 흐리게 ----------
+     지금 페이지의 탭(예: CONTACT)이 화면 밖이면 처음부터 보이도록 그만큼 밀어 둠 */
   const tabRow = document.querySelector('.gnb__menu');
   if (tabRow) {
-    const more = () => tabRow.classList.toggle('is-more', tabRow.scrollLeft + tabRow.clientWidth < tabRow.scrollWidth - 2);
+    const more = () => {
+      tabRow.classList.toggle('is-more', tabRow.scrollLeft + tabRow.clientWidth < tabRow.scrollWidth - 2);
+      tabRow.classList.toggle('is-less', tabRow.scrollLeft > 2);
+    };
+    const here = tabRow.querySelector('a.is-here');
+    const showHere = () => {
+      if (!here) return;
+      const over = here.getBoundingClientRect().right - (tabRow.getBoundingClientRect().right - 28);   // 오른쪽 흐린 부분(28px)도 피해서
+      if (over > 0) tabRow.scrollLeft += over;
+      more();
+    };
     tabRow.addEventListener('scroll', more, { passive: true });
     window.addEventListener('resize', more);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(more);
-    more();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(showHere);
+    showHere();
   }
 
   /* ---------- 아직 없는 페이지·기능: '준비 중' 안내 ---------- */

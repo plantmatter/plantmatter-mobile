@@ -50,18 +50,19 @@ button, input, select { font: inherit; color: inherit; }
 .gnb__logo img { width: var(--logo-w); height: auto; }
 .gnb__util { display: flex; margin-right: -9px; }
 .gnb__menu {
-  display: flex; justify-content: space-between; gap: 4px; height: 50px; align-items: center;   /* 탭 5개를 양 끝까지 고르게 (사이 간격은 남는 폭만큼) */
+  display: flex; justify-content: space-between; gap: 12px; height: 50px; align-items: center;   /* 탭이 다 들어가면 양 끝까지 고르게 */
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain;   /* 아주 좁은 휴대폰에서는 옆으로 밀어서 */
 }
 .gnb__menu::-webkit-scrollbar { display: none; }
 .gnb__menu a { flex: none; }
 .gnb__menu.is-more { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
+.gnb__menu.is-less { -webkit-mask-image: linear-gradient(to right, transparent, #000 28px); mask-image: linear-gradient(to right, transparent, #000 28px); }   /* 앞에도 가려진 탭이 있을 때 왼쪽 끝도 흐리게 */
+.gnb__menu.is-less.is-more { -webkit-mask-image: linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 28px), transparent); }
 .gnb__menu a {
   position: relative; padding: 6px 0; line-height: 1;
-  /* 로고보다 작게, 자간은 워드마크와 같은 비율 — 탭 5개(PLANT · PRODUCT · MATTER · COLLABORATION · CONTACT)가
-     보통 휴대폰(390px) 한 줄에 다 들어가는 크기. 더 좁은 휴대폰은 옆으로 밀어서 */
-  font-size: 10.5px; font-weight: 300; letter-spacing: .185em;
+  /* 로고보다 한 단계 작게, 자간은 워드마크와 같은 비율 — 탭 5개가 화면보다 길면 옆으로 밀어서 봄 */
+  font-size: 12px; font-weight: 300; letter-spacing: .185em;
 }
 .gnb__menu a:first-child { margin-left: -.1em; }   /* P 글자 왼쪽 여백만큼 당겨 로고와 왼쪽 끝 맞춤 */
 /* 지금 보고 있는 페이지의 탭만 한 단계 굵게 (400). 굵어져도 글씨 위치가 움직이지 않도록,
